@@ -23,22 +23,23 @@ hideButton.addEventListener('click', function () {
     squares.forEach(square => square.style.display = '')
 })
 
+function toggleFunction (color) {
+  const x = document.getElementById(`#${color}`);
+  if (x.style.display === "none") {
+    x.style.display = '';
+  } else {
+    x.style.display = 'none';
+  }
+}
+
 colors.forEach(color => {
     const button = document.createElement('BUTTON')
-    button.id = `${color}`
-    button.className = 'toggle'
+    button.id = 'toggle'
     const colorProper = color.slice(0,1).toUpperCase() + color.slice(1)
     button.innerHTML = `Toggle ${colorProper}`
     document.querySelector('.buttonContainer').appendChild(button)
 })
 
-const toggleButtons = document.querySelectorAll('.toggle')
+const toggleButtons = document.querySelectorAll('#toggle')
 
-toggleButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        const squares = document.querySelectorAll('.square');
-        if (squares.id === button.id) {
-            return square.style.display = ''
-        }
-    })
-})
+toggleButtons.addEventListener('click', toggleFunction(blue))
