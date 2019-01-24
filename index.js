@@ -1,4 +1,3 @@
-console.clear()
 const colors = ['blue', 'green', 'yellow','orange']
 
 colors.forEach(color => {
@@ -28,7 +27,7 @@ hideButton.addEventListener('click', function () {
 colors.forEach(color => {
     const button = document.createElement('BUTTON')
     button.id = 'toggle'
-    button.class = 'color'
+    button.class = `${color}`
     const colorProper = color.slice(0,1).toUpperCase() + color.slice(1)
     button.innerHTML = `Toggle ${colorProper}`
     document.querySelector('.buttonContainer').appendChild(button)
@@ -40,8 +39,8 @@ const toggleButtons = document.querySelectorAll('#toggle')
 
 toggleButtons.forEach(button => {
   button.addEventListener('click', function () {
-    const color = '#' + button.className;
-    const squares = document.querySelector(`${color}`)
+    const color = button.className;
+    const squares = document.getElementById(`${color}`)
     squares.forEach(square => {
       if (square.style.display === 'none') {
       square.style.display = '';
@@ -50,4 +49,3 @@ toggleButtons.forEach(button => {
       }
     })
   })
-})
